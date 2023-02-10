@@ -35,3 +35,23 @@ export const ImgCategory = styled.Image`
     height: 48px;
     margin-bottom: 10px;
 `;
+
+export const AreaTitle = styled.View`
+    flex-direction: row;
+    //background-color: #DDD;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    padding-Start: 14px;
+    padding-End: 14px;
+`;
+
+export const TitleArea = styled.Text`
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+`;
+export const SubTitleArea = styled.Text`
+    color: #DDD;
+    font-size: 16px;
+`;

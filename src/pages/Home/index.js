@@ -9,7 +9,7 @@ import CategoriaList from '../../components/CategoriaList';
 
 import Header from '../../components/Header';
 
-import { Container, ImgTest, ListCategory, BntCategory, TitleCategory, ImgCategory } from './style';
+import { Container, ImgTest, ListCategory, BntCategory, TitleCategory, ImgCategory, AreaTitle, TitleArea, SubTitleArea } from './style';
 
 export default function Home() {
  return (
@@ -34,7 +34,9 @@ export default function Home() {
         style={{ margin: 10, }}
       >
           
-          <BntCategory>
+          <BntCategory
+            onPress={ () => alert('Ranqueada')}
+          >
 
               <ImgCategory
                 source={require('../../assets/podio.png')}
@@ -67,7 +69,15 @@ export default function Home() {
          
 
       </ScrollView>
-      
+
+      <AreaTitle>
+        <TitleArea>
+          Partidas Agendadas
+        </TitleArea>
+        <SubTitleArea>
+          Total: 9
+        </SubTitleArea>
+      </AreaTitle>
 
     </Container>
 

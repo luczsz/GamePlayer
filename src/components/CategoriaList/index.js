@@ -6,7 +6,6 @@ import { Container, Title, ImgCatg } from './style';
 export default function CategoriaList( {data} ) {
  return (
    <Container>
-        
         <Title> {data.type} </Title>
    </Container>
   );
