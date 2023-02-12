@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../pages/Home';
 import SingIn from '../pages/SingIn';
+import Agendar from '../pages/Agendar';
 
 
 
@@ -26,6 +27,10 @@ export default function Routes(){
                 options={{
                     headerShown: false,
                 }}
+            />
+            <RoutesApp.Screen
+                name='Agendar'
+                component={Agendar}
             />
         </RoutesApp.Navigator>
     );

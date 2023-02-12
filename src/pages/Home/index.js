@@ -6,12 +6,21 @@ import { theme } from '../../global/theme';
 import { category } from '../../components/listCategoria';
 import CategoriaList from '../../components/CategoriaList';
 
+import { useNavigation } from '@react-navigation/native'
 
 import Header from '../../components/Header';
 
 import { Container, ImgTest, ListCategory, BntCategory, TitleCategory, ImgCategory, AreaTitle, TitleArea, SubTitleArea } from './style';
 
 export default function Home() {
+
+  const podio = '../../assets/podio.png';
+  const duel = '../../assets/duel.png';
+  const userGm = '../../assets/userGm.png';
+
+  const navigation = useNavigation();
+
+
  return (
 
     <Container>
@@ -35,11 +44,11 @@ export default function Home() {
       >
           
           <BntCategory
-            onPress={ () => alert('Ranqueada')}
+            onPress={ () => navigation.navigate('Agendar', {key: 'Raqueada'})  }
           >
 
               <ImgCategory
-                source={require('../../assets/podio.png')}
+                source={require(podio)}
               />
 
             <TitleCategory>
@@ -47,10 +56,12 @@ export default function Home() {
             </TitleCategory>
           </BntCategory>
 
-          <BntCategory>
+          <BntCategory
+             onPress={ () => navigation.navigate('Agendar', {key: duel})  }
+          >
 
               <ImgCategory
-                source={require('../../assets/duel.png')}
+                source={require(duel)}
               />
 
             <TitleCategory>
@@ -58,9 +69,11 @@ export default function Home() {
             </TitleCategory>
           </BntCategory>
           
-          <BntCategory>
+          <BntCategory
+              onPress={ () => navigation.navigate('Agendar', {key: userGm})  }
+          >
               <ImgCategory
-                source={require('../../assets/userGm.png')}
+                source={require(userGm)}
               />
             <TitleCategory> 
               Diversão 
