@@ -5,9 +5,7 @@ export default function Agendar({route}) {
 
     return (
    <View>
-        <Text> Agendar, {rota} </Text>
-        
-        
+        <Text> Agendar {route.params.key} </Text>
    </View>
   );
 }

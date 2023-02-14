@@ -26,7 +26,9 @@ export default function SingIn() {
     <Logo
       source={ require('../../assets/illustration.png')}
     />
-    <Title>
+    <Title
+      style={{ fontFamily: theme.fonts.title500 }}
+    >
       Conecte-se {`\n`}
       suas jogatinas {`\n`}
       facilmente...
@@ -40,7 +42,9 @@ export default function SingIn() {
         source={ require('../../assets/discord.png')}
       />
       <Line/>
-      <LoginTxt>Entrar com discord</LoginTxt>
+      <LoginTxt
+        style={{ fontFamily: theme.fonts.title700 }}
+      >Entrar com discord</LoginTxt>
     </BntLogin>
    </Container>
   );

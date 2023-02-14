@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, ScrollView, FlatList } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '../../global/theme';
-import { category } from '../../components/listCategoria';
+import { category, List } from '../../components/listCategoria';
 import CategoriaList from '../../components/CategoriaList';
 
 import { useNavigation } from '@react-navigation/native'
@@ -14,12 +14,20 @@ import { Container, ImgTest, ListCategory, BntCategory, TitleCategory, ImgCatego
 
 export default function Home() {
 
+
+  const [categoria, setCategoria] = useState('');
+
   const podio = '../../assets/podio.png';
   const duel = '../../assets/duel.png';
   const userGm = '../../assets/userGm.png';
 
   const navigation = useNavigation();
 
+
+    function candy(data){
+      setCategoria( data.item.type );
+      navigation.navigate('Agendar', {key:(data.item.type)});
+    }
 
  return (
 
@@ -36,56 +44,22 @@ export default function Home() {
       />
 
       <Header/>
-      
-      <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        style={{ margin: 10, }}
-      >
-          
-          <BntCategory
-            onPress={ () => navigation.navigate('Agendar', {key: 'Raqueada'})  }
-          >
 
-              <ImgCategory
-                source={require(podio)}
-              />
+      <View style={{ marginTop: 10, marginBottom: 10, }} >
 
-            <TitleCategory>
-               Raqueada 
-            </TitleCategory>
-          </BntCategory>
+          <FlatList
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            data={category}
+            keyExtractor={ (item) => item.id }
+            renderItem={ (item) => <CategoriaList data={item} alet={ candy } />}
+          />
 
-          <BntCategory
-             onPress={ () => navigation.navigate('Agendar', {key: duel})  }
-          >
-
-              <ImgCategory
-                source={require(duel)}
-              />
-
-            <TitleCategory>
-               Duelo 1x1 
-            </TitleCategory>
-          </BntCategory>
-          
-          <BntCategory
-              onPress={ () => navigation.navigate('Agendar', {key: userGm})  }
-          >
-              <ImgCategory
-                source={require(userGm)}
-              />
-            <TitleCategory> 
-              Diversão 
-            </TitleCategory>
-          </BntCategory>
-         
-
-      </ScrollView>
+      </View>
 
       <AreaTitle>
         <TitleArea>
-          Partidas Agendadas
+          Partidas Agendadas {categoria}
         </TitleArea>
         <SubTitleArea>
           Total: 9

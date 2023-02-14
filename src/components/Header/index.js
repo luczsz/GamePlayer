@@ -3,9 +3,13 @@ import { View, Text } from 'react-native';
 
 import { Container, UserImage, UserName, AddView, Title, TitleUser, LineUser } from './style';
 
+import { useNavigation } from '@react-navigation/native'
+
 import { AntDesign } from '@expo/vector-icons';
 
 export default function Header() {
+
+    const navigation = useNavigation();
  return (
     <Container>
         <UserImage
@@ -18,7 +22,9 @@ export default function Header() {
             </View>
             <LineUser> Hoje é dia de vitória </LineUser>
         </UserName>
-        <AddView>
+        <AddView
+            onPress={ () => navigation.navigate('Agendar', {key:('Sem categoria')})}
+        >
         <AntDesign name="plus" size={34} color="#FFF" />
         </AddView>
 
